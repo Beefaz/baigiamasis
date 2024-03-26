@@ -1,41 +1,8 @@
-// import express from 'express';
-// import session from 'express-session';
-// import mongoose from 'mongoose';
-// import cors from 'cors';
-// import {config} from "dotenv";
-// import {UPLOADS_DIR} from "./constants.js";
-//
-// config();
-//
-// const app = express();
-//
-// app.use(cors({
-//   credentials: true,
-//   origin: process.env.CLIENT_HOST
-// }));
-//
-// app.set('trust proxy', true);
-//
-// app.use(session({
-//   secret: 'keyboard cat',
-//   resave: false,
-//   saveUninitialized: false
-// }));
-//
-// await mongoose.connect(process.env.DB_HOST);
-// app.use(express.urlencoded({extended: true}));
-// app.use(PostController);
-// app.use(UserController);
-//
-// app.use('/files', express.static(UPLOADS_DIR));
-//
-// app.listen(process.env.SERVER_PORT);
-
-// app.js
 import express from 'express';
-import session from 'express-session';
-import authRoutes from './controller/auth.js';
+// import session from 'express-session';
 import protectedRoute from './middleware/protectedRoute.js';
+import AuthController from './controller/auth.js';
+import ProjectController from './controller/project.js';
 import cors from "cors";
 import dotenv from 'dotenv';
 import mongoose from "mongoose";
@@ -51,15 +18,17 @@ app.use(cors({
 
 app.set('trust proxy', true);
 
-app.use(session({
-  secret: process.env.SECRET,
-  resave: false,
-  saveUninitialized: false
-}));
+// app.use(session({
+//   secret: process.env.SECRET,
+//   resave: false,
+//   saveUninitialized: false
+// }));
 
 await mongoose.connect(process.env.DB_HOST);
 
-app.use(authRoutes);
+app.use(AuthController);
+app.use(ProjectController);
 app.use(protectedRoute);
+app.use('/uploads', express.static(process.env.UPLOADS_DIR));
 
 app.listen(process.env.PORT || 3000);

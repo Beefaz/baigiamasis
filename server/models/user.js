@@ -1,12 +1,13 @@
 import {Schema, model} from "mongoose";
+import bcrypt from "bcrypt";
 
 const userSchema = new Schema({
   username: {
     type: String,
     unique: true,
     required: [true, 'Vartotojo vardas privalomas'],
-    min: [3, 'Per trumpas naudotojo vardas'],
-    max: [25, 'Per ilgas naudotojo vardas'],
+    minLength: [3, 'Per trumpas naudotojo vardas'],
+    maxLength: [25, 'Per ilgas naudotojo vardas'],
   },
   name: {
     type: String,
@@ -50,6 +51,16 @@ const userSchema = new Schema({
     type: Date,
     default: Date.now(),
   },
+});
+
+userSchema.pre('save', async function save(next) {
+  if (!this.isModified('password')) return next();
+  try {
+    this.password = await bcrypt.hash(this.password, 10);
+    return next();
+  } catch (err) {
+    return next(err);
+  }
 });
 
 const userModel = model('User', userSchema);
