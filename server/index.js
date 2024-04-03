@@ -1,7 +1,5 @@
 import express from 'express';
-// import session from 'express-session';
-import protectedRoute from './middleware/protectedRoute.js';
-import AuthController from './controller/auth.js';
+import UserController from './controller/user.js';
 import ProjectController from './controller/project.js';
 import cors from "cors";
 import dotenv from 'dotenv';
@@ -17,18 +15,10 @@ app.use(cors({
 }));
 
 app.set('trust proxy', true);
-
-// app.use(session({
-//   secret: process.env.SECRET,
-//   resave: false,
-//   saveUninitialized: false
-// }));
-
 await mongoose.connect(process.env.DB_HOST);
 
-app.use(AuthController);
+app.use(UserController);
 app.use(ProjectController);
-app.use(protectedRoute);
 app.use('/uploads', express.static(process.env.UPLOADS_DIR));
 
 app.listen(process.env.PORT || 3000);

@@ -1,0 +1,57 @@
+$breakpoint-phone: 576px;
+#root {
+  position: relative;
+}
+
+.header {
+  padding: 20px;
+  margin: 0 auto;
+  background: #FFF;
+  box-shadow: 0 4px 20px 0 rgba(0, 0, 0, 0.20);
+  position: sticky;
+  top: 0;
+  z-index: 5;
+  min-height: 80px;
+
+  &-content {
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 40px;
+    justify-content: center;
+    @media (min-width: $breakpoint-phone) {
+      justify-content: space-between;
+    }
+
+    &__right {
+      display: flex;
+      gap: 10px;
+      align-items: center;
+
+      button {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border: 1px solid rgb(0,0,0);
+        box-shadow: -1px 1px 2px 0px black;
+        padding: 5px;
+        &:hover {
+          box-shadow: -1px 1px 5px 1px black;
+          background: white;
+        }
+      }
+    }
+  }
+
+  .logo {
+    width: 110px;
+    height: 100%;
+    margin: -22px 0 -17px 0;
+    padding: 5px 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    object-fit: scale-down;
+  }
+}

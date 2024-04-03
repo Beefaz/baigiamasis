@@ -1,0 +1,70 @@
+.projects {
+  padding: 20px 20px;
+  display: flex;
+  justify-content: center;
+
+  .table-wrapper {
+    overflow-x: auto;
+    width: 100%;
+  }
+
+  table {
+    width: 100%;
+    padding: 5px;
+    border-collapse: collapse;
+
+    th, td {
+      padding: 5px 10px;
+      border: 1px solid;
+
+    }
+
+    .description {
+      width: 100%;
+      min-width: 500px;
+      div {
+        overflow: hidden;
+        display: -webkit-box;
+        -webkit-line-clamp: 5;
+        -webkit-box-orient: vertical;
+      }
+    }
+
+    .status, .debate_date, .created_at, .actions {
+      width: 0.1%;
+      white-space: nowrap;
+      text-align: center;
+    }
+
+    .photo img {
+      width: 100px;
+      height: 100px;
+      object-fit: cover;
+    }
+
+    .actions__content {
+      display: flex;
+      justify-content: center;
+      gap: 3px;
+    }
+
+    .actions__content button {
+      padding: 5px;
+      border: 1px solid rgb(0, 0, 0);
+      box-shadow: -1px 1px 2px 0px black;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      &:hover {
+        box-shadow: -1px 1px 5px 1px black;
+        background: white;
+      }
+    }
+
+    .actions__content button + button {
+      margin-left: 10px;
+    }
+
+  }
+}

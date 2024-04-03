@@ -1,36 +1,47 @@
 import {Schema, model} from "mongoose";
-import bcrypt from "bcrypt";
 
 const projectSchema = new Schema({
-  description: {
-    type: String,
-    required: [true, 'Aprašymas yra privalomas'],
-    minLength: [10, 'Per trumpas aprašymas'],
-    maxLength: [2000, 'Per ilgas aprašymas'],
+    title: {
+      type: String,
+      required: [true, 'Pavadinimas yra privalomas'],
+      minLength: [10, 'Per trumpas pavadinimas'],
+      maxLength: [50, 'Per ilgas pavadinimas'],
+    },
+    photo: {
+      type: String,
+    },
+    description: {
+      type: String,
+      required: [true, 'Aprašymas yra privalomas'],
+      minLength: [10, 'Per trumpas aprašymas'],
+      maxLength: [2000, 'Per ilgas aprašymas'],
+    },
+    debateDate: {
+      type: Date,
+      required: [true, 'Svarstymo data yra privaloma'],
+      default: Date.now(),
+    },
+    author: {
+      type: Schema.Types.ObjectId,
+      ref: 'User',
+      required: true
+    },
+    status: {
+      type: String,
+      enum: {
+        values: ['Pateiktas', 'Atmestas', 'Priimtas', 'Nepakanka duomenų'],
+        message: '{VALUE} - toks statusas neegzistuoja'
+      },
+      default: 'Pateiktas',
+    },
+    createdAt: {
+      type: Date,
+      default: Date.now(),
+    },
   },
-  status: {
-    type: String,
-    enum: {
-      values: ['Pateiktas', 'Atmestas', 'Priimtas', 'Nepakanka duomenų'],
-      message: '{VALUE} - toks statusas neegzistuoja'
-    }
-  },
-  photo: {
-    type: String,
-  },
-  debateDate: {
-    type: Date,
-    // required: [true, 'Svarstymo data yra privaloma'],
-    default: Date.now(),
-  },
-  createdAt: {
-    type: Date,
-    default: Date.now(),
-  },
-});
+);
 
-const projectModel = model('Project', projectSchema);
 
-export default projectModel;
+export default model('Project', projectSchema);
 
 

@@ -1,0 +1,55 @@
+$breakpoint-tablet: 768px;
+.project {
+  padding: 0 20px 20px 20px;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+
+  &__top {
+    display: flex;
+    gap: 25px;
+    flex-wrap: wrap;
+    max-width: fit-content;
+
+    .status {
+      font: inherit;
+    }
+  }
+
+  .col {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    flex: 1 1 max-content;
+  }
+
+  &__bottom {
+    display: inline-block;
+    margin-top: 25px;
+
+    .image-col {
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      shape-outside: margin-box;
+      float: right;
+      margin-left: 10px;
+      margin-bottom: 25px;
+      @media (min-width: $breakpoint-tablet) {
+        max-width: 50%;
+      }
+    }
+
+    .project-description {
+      margin-top: 10px;
+    }
+
+    .project-image {
+      margin-top: 10px;
+      width: auto;
+      height: auto;
+      object-fit: cover;
+    }
+
+  }
+}

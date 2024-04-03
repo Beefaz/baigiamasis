@@ -1,0 +1,40 @@
+.control-panel {
+  padding: 20px;
+  display: flex;
+  justify-content: space-between;
+  gap: 5px;
+  flex-wrap: wrap;
+
+  &__side-left {
+
+  }
+
+  &__side-right {
+    display: flex;
+    gap: 5px;
+    //align-self: flex-end;
+    flex-wrap: wrap;
+
+    a {
+      all: unset;
+      min-width: max-content;
+      background-color: rgb(255, 255, 255);
+      border-radius: 5px;
+      padding: 10px 20px;
+      box-sizing: border-box;
+      align-self: center;
+      text-align: center;
+      border: 2px solid rgb(0, 0, 0);
+
+      &.active {
+        background-color: rgba(0, 0, 0, 0.2);
+      }
+
+      &:hover {
+        background-color: rgba(0, 0, 0, 0.1);
+        cursor: pointer;
+        user-select: none;
+      }
+    }
+  }
+}
