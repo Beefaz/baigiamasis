@@ -73,8 +73,8 @@ const Projects = () => {
 
   return (
     <>
-      {message}
       <div className="projects">
+        <div className="message">{message}</div>
         {projects.length !== 0 &&
           <div className="table-wrapper">
             <table>

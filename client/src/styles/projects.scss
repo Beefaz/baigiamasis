@@ -1,7 +1,15 @@
 .projects {
   padding: 20px 20px;
   display: flex;
+  flex-direction: column;
+  gap: 20px;
   justify-content: center;
+  align-items: center;
+
+  .message {
+    color: rgb(0, 46, 197);
+    letter-spacing: 0;
+  }
 
   .table-wrapper {
     overflow-x: auto;
