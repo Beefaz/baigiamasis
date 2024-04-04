@@ -1,3 +1,13 @@
+@each $name, $color in $pills {
+  .pill-#{$name} {
+    background-color: $color;
+    color: rgb(255,255,255);
+    border-radius: 15px;
+    padding: 5px 20px;
+    font-weight: 600;
+  }
+}
+
 .projects {
   padding: 20px 20px;
   display: flex;
@@ -71,22 +81,5 @@
       margin-left: 10px;
     }
 
-  }
-}
-
-$pills: (
-        pending: rgb(0, 125, 203),
-        rejected: rgb(203, 0, 0),
-        accepted: rgb(47, 188, 10),
-        noData: rgb(229, 124, 3),
-);
-
-@each $name, $color in $pills {
-  .pill-#{$name} {
-    background-color: $color;
-    color: rgb(255,255,255);
-    border-radius: 15px;
-    padding: 5px 20px;
-    font-weight: 600;
   }
 }
