@@ -56,7 +56,7 @@ const ViewProject = () => {
             <option value="noData">{translations.status.noData}ų</option>
           </select>
           :
-          <div>{data.status}</div>
+          <div className={`pill-${data.status}`}>{translations.status[data.status]}</div>
         }
       </div>
     </div>

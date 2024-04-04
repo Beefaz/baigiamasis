@@ -10,6 +10,7 @@ import Register from "./pages/Register.jsx";
 import UserRoute from "./components/wrappers/UserRoute.jsx";
 import AdminRoute from "./components/wrappers/AdminRoute.jsx";
 import ControlPanel from "./components/ControlPanel.jsx";
+import Page404 from "./pages/404.jsx";
 
 
 const App = () => {
@@ -19,6 +20,7 @@ const App = () => {
       <AuthProvider>
         <Routes>
           <Route
+            exact
             path="/"
             element={
               <Login/>
@@ -74,6 +76,10 @@ const App = () => {
               </UserRoute>
             }
           />
+          <Route path="*"
+                 element={<Page404/>}
+          >
+          </Route>
         </Routes>
       </AuthProvider>
     </BrowserRouter>

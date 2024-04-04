@@ -32,7 +32,7 @@ const projectSchema = new Schema({
         values: ['pending', 'rejected', 'accepted', 'noData'],
         message: '{VALUE} - toks statusas neegzistuoja'
       },
-      default: 'Pateiktas',
+      default: 'pending',
     },
     createdAt: {
       type: Date,

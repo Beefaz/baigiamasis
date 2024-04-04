@@ -1,0 +1,25 @@
+.page-404 {
+  display: flex;
+  width: 100%;
+  min-height: 100vh;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  flex-direction: column;
+
+  a {
+    margin-top: 20px;
+  }
+
+  .message {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    strong {
+      font-size: 24px;
+    }
+
+  }
+}
