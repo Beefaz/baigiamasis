@@ -6,6 +6,7 @@ import viewSvg from '../assets/images/svg/view.svg'
 import editSvg from '../assets/images/svg/edit.svg'
 import trashSvg from '../assets/images/svg/trash.svg'
 import useAuth from "../hooks/useAuth.jsx";
+import {translations} from "../translations/lt.js";
 
 const Projects = () => {
   const [projects, setProjectsData] = useState([]);
@@ -45,7 +46,10 @@ const Projects = () => {
       <td className="index">{index + 1}</td>
       <td className="author">{author && `${name} ${surname}`}</td>
       <td className="title">{title} </td>
-      <td className="photo"><img src={`http://localhost:3000/uploads/${photo}`} alt="project_photo"/></td>
+      <td className="photo"><div>
+        <img src={`http://localhost:3000/uploads/${photo}`} alt="project_photo"/>
+      </div>
+      </td>
       <td className="description"><div>{description}</div></td>
       <td className="created_at">
         {new Date(createdAt).toLocaleDateString('lt-LT')}
@@ -53,7 +57,7 @@ const Projects = () => {
         {new Date(createdAt).toLocaleTimeString('lt-LT')}
       </td>
       <td className="debate_date">{new Date(debateDate).toLocaleDateString('lt-LT')}</td>
-      <td className="status">{status}</td>
+      <td className="status"><div className={`pill-${status}`}>{translations.status[status]}</div></td>
       <td className="actions">
         <div className="actions__content">
           <button onClick={() => viewProject(projectId)}><img src={viewSvg} alt="view"/></button>

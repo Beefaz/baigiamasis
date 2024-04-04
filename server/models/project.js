@@ -29,7 +29,7 @@ const projectSchema = new Schema({
     status: {
       type: String,
       enum: {
-        values: ['Pateiktas', 'Atmestas', 'Priimtas', 'Nepakanka duomenų'],
+        values: ['pending', 'rejected', 'accepted', 'noData'],
         message: '{VALUE} - toks statusas neegzistuoja'
       },
       default: 'Pateiktas',

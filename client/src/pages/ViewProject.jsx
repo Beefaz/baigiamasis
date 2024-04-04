@@ -2,6 +2,7 @@ import "../styles/project.scss";
 import {useEffect, useState} from "react";
 import _axios from "../helpers/_axios.js";
 import {useLocation} from "react-router-dom";
+import {translations} from "../translations/lt.js";
 
 const ViewProject = () => {
   const {state} = useLocation();
@@ -49,10 +50,10 @@ const ViewProject = () => {
         {user?.role === 'admin'
           ?
           <select name="status" value={data.status} onInput={handleSelect} className="status">
-            <option value="Pateiktas">Pateiktas</option>
-            <option value="Atmestas">Atmestas</option>
-            <option value="Priimtas">Priimtas</option>
-            <option value="Nepakanka duomenų">Nepakanka duomenų</option>
+            <option value="pending">{translations.status.pending}</option>
+            <option value="rejected">{translations.status.rejected}</option>
+            <option value="accepted">{translations.status.accepted}</option>
+            <option value="noData">{translations.status.noData}ų</option>
           </select>
           :
           <div>{data.status}</div>
