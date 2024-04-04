@@ -53,7 +53,7 @@ const ViewProject = () => {
             <option value="pending">{translations.status.pending}</option>
             <option value="rejected">{translations.status.rejected}</option>
             <option value="accepted">{translations.status.accepted}</option>
-            <option value="noData">{translations.status.noData}ų</option>
+            <option value="noData">{translations.status.noData}</option>
           </select>
           :
           <div className={`pill-${data.status}`}>{translations.status[data.status]}</div>
